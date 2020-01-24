@@ -28,13 +28,14 @@ public class Producer1 {
         The producer specifies the topic name as well as the message which is to be delivered to Kafka
         */
 
-        ProducerRecord<String, String> record=new ProducerRecord<String, String>("my_first", "Hi Kafka");
+        ProducerRecord<String, String> record=new ProducerRecord<String, String>("my_first", "Hi Kafka Producer");
 
         //send data - The data produced by a producer is asynchronous.
         first_producer.send(record);
 
         first_producer.flush(); //The flush() will force all the data to get produced
         first_producer.close(); //stops the producer
+        System.out.println("CLOSING");
 
         //If these functions are not executed, data will never be sent to the Kafka, and the consumer will not be able to read it.
 
